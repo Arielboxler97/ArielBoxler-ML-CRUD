@@ -14,8 +14,15 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="/products/edit/<%= id %>?_method=PUT" method="POST">
+			<form action="/products/edit/<%= id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+				
 				<div class="row product-detail">
+					<div class="col-12 col-md-6" style="width: 100%;">
+						<div style="max-height: 500px; overflow: hidden;" class="col-12 d-flex justify-content-center col-md-12 mb-3">
+							<img src="/images/products/<%= image %>" alt="" class="img-fluid ">
+						</div>
+					</div>
+
 					<div class="col-12 col-md-6">
 						<label for="name" class="form-label">Nombre del producto:</label>
 						<input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= name %>">
@@ -35,12 +42,16 @@
 							<option value="visited" <%= category === "visited" && 'selected' %>>Últimos agregados</option>
 						</select>
 					</div>
+					
 					<div class="col-12">
 						<label for="description" class="form-label">Descipción:</label>
 						<textarea name="description" id="description" class="form-input"><%= description %></textarea>
 					</div>
-					<div class="col-12">
-						<button type="submit" class="buy-now-button">Guardar producto</button>
+					
+					<div class="mb-3 d-flex gap-2">
+						<label for="image" class="btn btn-success btn-lg">Subir una imagen</label>
+						<input type="file" id="image" name="image" class="d-none">
+						<button type="submit" class="btn btn-primary btn-lg">Guardar producto</button>
 					</div>
 				</div>
 			</form>

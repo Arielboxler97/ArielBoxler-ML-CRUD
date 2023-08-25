@@ -38,13 +38,13 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		const {name,price,discount,description,category,image} = req.body;
 
 		let newProduct = {
-			id : products[products.length -1].id +1,
+			id : products.length ? products[products.length -1].id +1 : 1,
 			name : name.trim(),
 			price : +price,
 			discount : +discount,
 			category,
 			description : description.trim(),
-			image : null
+			image : req.file ? req.file.filename : null
 
 		}
 
@@ -72,11 +72,14 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 		const productModify = products.map(product =>{
 
 			if(product.id === +req.params.id){
+			req.file &&(fs.existsSync(`./public/images/products/${product.image}`) && fs.unlinkSync(`./public/images/products/${product.image}`))
+
 			product.name = name.trim();
 			product.price = +price;
 			product.discount = +discount;
 			product.category = category;
 			product.description = description.trim();
+			product.image = req.file ? req.file.filename : product.image
 			
 			}
 			return product
