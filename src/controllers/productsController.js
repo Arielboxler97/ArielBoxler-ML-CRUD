@@ -91,9 +91,18 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		const productsModify = products.filter(product => product.id !== +req.params.id)
+		
+		
 
+		const productsModify = products.filter((product) =>{
+			if (product.id === +req.params.id) {
+				fs.existsSync(`./public/images/products/${product.image}`) &&
+				fs.unlinkSync(`./public/images/products/${product.image}`);
+			}
+			return product.id !== +req.params.id;
+		})
 		fs.writeFileSync(productsFilePath,JSON.stringify(productsModify,null,3),'utf-8')
+
 		return res.redirect('/products')
 	}
 };

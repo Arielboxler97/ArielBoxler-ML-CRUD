@@ -142,32 +142,5 @@
       "category": "in-sale",
       "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "image": "img-parlante-sony.jpg"
-   },
-   {
-      "id": 17,
-      "name": "Ariel",
-      "price": 50,
-      "discount": 15,
-      "category": "in-sale",
-      "description": "asf",
-      "image": "1692979760722_products_.jpg"
-   },
-   {
-      "id": 18,
-      "name": "zapatillas adidas",
-      "price": 600000,
-      "discount": 15,
-      "category": "in-sale",
-      "description": "fadsf",
-      "image": "1692977753554_products_.jpg"
-   },
-   {
-      "id": 19,
-      "name": "zapatillas adidas",
-      "price": 15,
-      "discount": 15,
-      "category": "in-sale",
-      "description": "asd",
-      "image": "1692978531337_products_.jpg"
    }
 ]
